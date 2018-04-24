@@ -33,18 +33,8 @@ def clearlast():
 
 i=0
 
-def f(sv):
-    s=sv.get()
-    if s=='':
-        return
-    if s[-1]=='=':
-        e1.delete(0,END)
-        e1.insert(0,eval(s[:-1]))
 
-sv = StringVar()
-sv.trace("w", lambda name, index, mode, sv=sv: f(sv))
-
-e1=Entry(root,bd=4,font = "Helvetica 24 bold",justify="center",width=14,textvariable=sv)
+e1=Entry(root,bd=4,font = "Helvetica 24 bold",justify="center",width=14)
 
 e1.grid(row=0,columnspan=4,ipadx=5,ipady=5)
 
@@ -73,7 +63,7 @@ Button(root,text=0,width=8,height=3,command=lambda:insert('0')).grid(row=5,colum
 Button(root,text='Clr',width=8,height=3,command=lambda:clearlast()).grid(row=5,column=2)
 Button(root,text='C',width=8,height=3,command=lambda:clear()).grid(row=5,column=3)
 
-Button(root,text='=',width=18,height=3,command=lambda:insert('=')).grid(row=6,columnspan=2)
+Button(root,text='=',width=18,height=3,command=display).grid(row=6,columnspan=2)
 Button(root,text='Close',width=18,height=3,command=quit).grid(row=6,column=2,columnspan=2)
 
 root.mainloop()
