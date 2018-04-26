@@ -7,7 +7,8 @@ def display():
     global cs
     s=e1.get()
     e1.delete(0,END)
-    e1.insert(0,eval(s))
+    s=eval(s)
+    e1.insert(0,s)
     cs=1
 
 def clear():
@@ -60,10 +61,11 @@ Button(root,text='/',width=8,height=3,command=lambda:insert('/')).grid(row=5,col
 
 Button(root,text='.',width=8,height=3,command=lambda:insert('.')).grid(row=5,column=0)
 Button(root,text=0,width=8,height=3,command=lambda:insert('0')).grid(row=5,column=1)
-Button(root,text='Clr',width=8,height=3,command=lambda:clearlast()).grid(row=5,column=2)
-Button(root,text='C',width=8,height=3,command=lambda:clear()).grid(row=5,column=3)
+Button(root,text='=',width=8,height=3,command=display).grid(row=5,column=2)
+Button(root,text='/',width=8,height=3,command=lambda:insert('/')).grid(row=5,column=3)
 
-Button(root,text='=',width=18,height=3,command=display).grid(row=6,columnspan=2)
+Button(root,text='Clr',width=8,height=3,command=lambda:clearlast()).grid(row=6)
+Button(root,text='C',width=8,height=3,command=lambda:clear()).grid(row=6,column=1,columnspan=1)
 Button(root,text='Close',width=18,height=3,command=quit).grid(row=6,column=2,columnspan=2)
 
 root.mainloop()
